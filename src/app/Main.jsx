@@ -1,40 +1,83 @@
 "use client";
 import {FaInstagram, FaYoutube} from "react-icons/fa";
 import {FaXTwitter} from "react-icons/fa6";
+import {Button, Modal} from "antd";
+import {useState} from "react";
 
 export default function Main() {
-    const cards = [
+    const Cards = [
         {
-            title: "Üşüme Kardeşim",
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
-            image: "https://i.imghippo.com/files/ZM1200nwM.jpg"
-        },
+        title: "Üşüme Kardeşim",
+        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
+        images: {
+            image1: "https://i.imghippo.com/files/ZM1200nwM.jpg",
+            image2: "https://i.imghippo.com/files/mac6312nE.jpeg",
+            image3: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
+        }},
         {
             title: "Adıyaman'da Çocuk Parkı!",
             content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
-            image: "https://i.imghippo.com/files/kCRw5173mM.jpeg"
+            images: {
+                image1: "https://i.imghippo.com/files/kCRw5173mM.jpeg",
+                image2: "https://i.imghippo.com/files/mac6312nE.jpeg",
+                image3: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
+            },
         },
         {
             title: "Yardım Kolisi",
             content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
-            image: "https://i.imghippo.com/files/OsIO2212kJs.jpeg"
+            images: {
+                image1: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
+                image2: "https://i.imghippo.com/files/mac6312nE.jpeg",
+                image3: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
+            },
         },
         {
             title: "Eğlenceli Faaliyetler",
             content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
-            image: "https://i.imghippo.com/files/FEX3798xuw.jpeg"
+            images: {
+                image1: "https://i.imghippo.com/files/FEX3798xuw.jpeg",
+                image2: "https://i.imghippo.com/files/mac6312nE.jpeg",
+                image3: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
+            },
         },
         {
-            title: "Card 4",
+            title: "Eğlenceli Faaliyetler",
             content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
-            image: "https://i.imghippo.com/files/ZM1200nwM.jpg"
+            images: {
+                image1: "https://i.imghippo.com/files/FEX3798xuw.jpeg",
+                image2: "https://i.imghippo.com/files/mac6312nE.jpeg",
+                image3: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
+            },
         },
-        {
-            title: "Card 4",
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
-            image: "https://i.imghippo.com/files/ZM1200nwM.jpg"
-        }
     ]
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [currentTitle, setCurrentTitle] = useState('');
+    const [currentImage, setCurrentImage] = useState('');
+    const [currentContent, setCurrentContent] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const [showFullScreenModal, setShowFullScreenModal] = useState(false);
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+        setShowFullScreenModal(false);
+    };
+
+    const closeModal = () => {
+        setShowFullScreenModal(false);
+    }
 
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
@@ -44,6 +87,7 @@ export default function Main() {
             });
         }
     };
+
 
 
     return (
@@ -146,23 +190,96 @@ export default function Main() {
                         className="flex items-center justify-start gap-8 max-sm:gap-12 overflow-x-scroll mt-12 py-4 pl-8"
                         style={{ scrollSnapType: "x mandatory" }}
                     >
-                        {cards.map((card, index) => (
+                        {Cards.map((card, index) => (
                             <div
                                 key={index}
+                                onClick={() => {
+                                    setCurrentTitle(card.title);
+                                    setCurrentContent(card.content);
+                                    setCurrentIndex(index);
+                                    showModal();
+                                }}
                                 className="w-[300px] h-[500px] bg-gray-100 rounded-lg p-6 cursor-pointer hover:shadow-lg hover:bg-gray-200 transition flex-shrink-0"
                                 style={{ scrollSnapAlign: "center" }}
                             >
                                 <img
-                                    src={card.image}
+                                    src={card.images.image1}
                                     alt="image"
                                     className="w-full h-40 object-cover rounded-md"
                                 />
-                                <div className="text-2xl font-bold mt-4">{card.title}</div>
+                                <div className="text-2xl font-bold mt-4 text-left">{card.title}</div>
                                 <div className="text-gray-600 mt-4 text-justify">{card.content}</div>
                             </div>
                         ))}
                     </div>
+
+                    <Modal
+                        open={isModalOpen}
+                        onOk={handleOk}
+                        onCancel={handleCancel}
+                        centered={true}
+                        zIndex={10}
+                        footer={[
+                            <Button className={""} key="cancel" onClick={handleCancel}>Kapat</Button>,
+                        ]}
+                        className={""}
+                    >
+                        <div className="flex flex-col items-center justify-center text-2xl p-4">
+                            <div
+                                className={"flex w-full cursor-zoom-in space-x-4 overflow-x-auto snap-always"}
+                                onClick={() => {
+                                    setCurrentImage(Cards.at(currentIndex).images.image+`${currentImageIndex + 1}`)
+                                }}
+                            >
+                                {Object.values(Cards.at(currentIndex).images).map((img, imgIndex) => (
+                                    <img
+                                        key={imgIndex}
+                                        src={img}
+                                        alt={`Image ${imgIndex + 1}`}
+                                        className={"object-cover w-[500px] h-[300px] rounded-lg"}
+                                        onClick={() => {
+                                            setCurrentImageIndex(imgIndex);
+                                            setShowFullScreenModal(true);
+                                        }}/>
+                                ))}
+                            </div>
+                            <div className="flex flex-col gap-2 overflow-x-scroll my-4 w-full">
+                                <div className="text-2xl font-bold">
+                                    {currentTitle}
+                                </div>
+                                <div className="text-lg">
+                                    {currentContent}
+                                </div>
+                            </div>
+                        </div>
+                    </Modal>
+
                 </div>
+
+                {/* Tam ekran foto */}
+                {
+                    showFullScreenModal === true ? (
+                        <Modal
+                            open={showFullScreenModal}
+                            onOk={handleOk}
+                            onCancel={closeModal}
+                            zIndex={20}
+                            width={2000}
+                            centered={true}
+                            footer={[
+                                <Button key="cancel" onClick={closeModal}>Kapat</Button>,
+                            ]}
+                        >
+                            <div className={"p-4"}>
+                                <img src={currentImage} alt={currentImage} className={"object-contain w-[2000px] h-[600px] rounded-lg"}/>
+                            </div>
+                        </Modal>
+                    ) :
+                    (
+                        <></>
+                    )
+                }
+                {/* Tam ekran foto son */}
 
                 {/* Footer */}
                 <div>
