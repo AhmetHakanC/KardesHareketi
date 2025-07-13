@@ -4,45 +4,50 @@ import {FaXTwitter} from "react-icons/fa6";
 import {Button, Modal} from "antd";
 import {useState} from "react";
 import { Dropdown, Space } from 'antd';
-
+import Image from "next/image";
 import WhoAreWe from "@/app/pages/WhoAreWe";
+
 import MainCarousel from "@/app/Components/MainCarousel";
+
+import logo from "@/Images/B.png";
+import elsallama from "@/Images/cocuklarElSalliyor.jpeg";
+
 
 export default function Main() {
     const Cards = [
         {
-        title: "Üşüme Kardeşim",
-        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
-        images: {
-            image1: "https://i.imghippo.com/files/ZM1200nwM.jpg",
-            image2: "https://i.imghippo.com/files/mac6312nE.jpeg",
-            image3: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
-        }},
+            title: "Üşüme Kardeşim",
+            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
+            images: {
+                image1: "https://iili.io/FMLmbDb.jpg",
+                image2: "https://iili.io/FMLmDOu.jpg",
+                image3: "https://iili.io/FMLmDOu.jpg",
+            }},
         {
             title: "Adıyaman'da Çocuk Parkı!",
             content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
             images: {
-                image1: "https://i.imghippo.com/files/kCRw5173mM.jpeg",
-                image2: "https://i.imghippo.com/files/mac6312nE.jpeg",
-                image3: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
+                image1: "https://iili.io/FMLmpxj.jpg",
+                image2: "https://iili.io/FMLpfOg.jpg",
+                image3: "https://iili.io/FMLmDOu.jpg",
             },
         },
         {
             title: "Yardım Kolisi",
             content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
             images: {
-                image1: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
-                image2: "https://i.imghippo.com/files/mac6312nE.jpeg",
-                image3: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
+                image1: "https://iili.io/FMLpK5F.jpg",
+                image2: "https://iili.io/FMLpFJ1.jpg",
+                image3: "https://iili.io/FMLmDOu.jpg",
             },
         },
         {
             title: "Eğlenceli Faaliyetler",
             content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?",
             images: {
-                image1: "https://i.imghippo.com/files/FEX3798xuw.jpeg",
-                image2: "https://i.imghippo.com/files/mac6312nE.jpeg",
-                image3: "https://i.imghippo.com/files/OsIO2212kJs.jpeg",
+                image1: "https://iili.io/FMLpqba.jpg",
+                image2: "https://iili.io/FMLmpxj.jpg",
+                image3: "https://iili.io/FMLpfOg.jpg",
             },
         },
         {
@@ -61,7 +66,7 @@ export default function Main() {
     const itemsHakkimizda = [
         {
             label: (
-                <div className={"font-bold"} onClick={() => setCurrentState(1)}>
+                <div className={"font-montserrat-semibold"} onClick={() => setCurrentState(1)}>
                     Biz Kimiz?
                 </div>
             ),
@@ -69,7 +74,7 @@ export default function Main() {
         },
         {
             label: (
-                <div className={"font-bold"} onClick={() => setCurrentState(2)}>
+                <div className={"font-montserrat-semibold"} onClick={() => setCurrentState(2)}>
                     Yönetim Kurulu
                 </div>
             ),
@@ -77,7 +82,7 @@ export default function Main() {
         },
         {
             label: (
-                <div className={"font-bold"} onClick={() => setCurrentState(3)}>
+                <div className={"font-montserrat-semibold"} onClick={() => setCurrentState(3)}>
                     Dernek Tüzüğü
                 </div>
             ),
@@ -85,7 +90,7 @@ export default function Main() {
         },
         {
             label: (
-                <div className={"font-bold"} onClick={() => setCurrentState(4)}>
+                <div className={"font-montserrat-semibold"} onClick={() => setCurrentState(4)}>
                     KVKK
                 </div>
             ),
@@ -95,7 +100,7 @@ export default function Main() {
     const itemsFaaliyetlerimiz = [
         {
             label: (
-                <div className={"font-bold"} onClick={() => setCurrentState(5)}>
+                <div className={"font-montserrat-semibold"} onClick={() => setCurrentState(5)}>
                     Tüm Faaliyetler
                 </div>
             ),
@@ -141,23 +146,17 @@ export default function Main() {
 
 
     return (
-        <div className={"h-screen bg-white text-gray-800 relative"} id="main">
+        <div className={"h-screen bg-white text-gray-800 relative font-montserrat-regular"} id="main">
             {/* Header */}
             <div style={{
                 background: "rgba(255,255,255,0.5)",
                 WebkitBackdropFilter: "blur(10px)",
                 backdropFilter: "blur(10px)",
                 border: "1px solid rgba(255,255,255,0.18)",
-            }}
-                 className={`h-20 max-md:h-24 border-b-[1px] flex items-center justify-between px-8 max-md:px-2 z-50 w-full absolute`}
-            >
+            }} className={`h-20 max-md:h-24 border-b-[1px] flex items-center justify-between px-8 max-md:px-2 z-50 w-full absolute`}>
                 {/* Logo */}
                 <div className={"w-20 max-md:w-24 h-20 max-md:h-24 flex items-center max-md:ml-4"}>
-                    <img
-                        src={"https://i.imghippo.com/files/mSaC4766De.png"}
-                        alt={"logo"}
-                        className={"w-full cursor-pointer"}
-                    />
+                    <Image src={logo} alt={"logo"} className={"w-full"}/>
                 </div>
 
                 {/* Navigation */}
@@ -195,14 +194,14 @@ export default function Main() {
             </div>
 
             <div className={`absolute w-full flex justify-end items-center ${currentState !== 0 ? "py-36" : "py-80"}`}>
-                <div className={"absolute z-10 bg-gradient-radial from-black to-transparent h-[300px] w-[500px] rounded-full mr-24 opacity-60 blur-xl"} />
-                <div className={`absolute z-20 flex flex-col items-end justify-center px-12 rounded-full font-modern mx-6`}>
+                <div className={"absolute z-10 bg-gradient-radial from-black to-transparent h-[300px] w-[700px] rounded-full mr-16 opacity-80 blur-xl"} />
+                <div className={`absolute z-20 flex flex-col items-end justify-center px-12 rounded-full font-montserrat-bold mx-6 ${currentState !== 0 ? "mt-24" : ""}`}>
                                         <span
                                             className={`bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent animate-gradient select-none ${currentState !== 0 ? "text-5xl h-[60px]" : "text-7xl h-[78px]"}`}
                                             style={{backgroundSize: '300% 200%'}}
                                         >Kardeş Hareketi</span>
-                    <div className={`font-light text-right text-gray-200 font-sans select-none ${currentState !== 0 ? "text-4xl" : "text-6xl mt-4"}`}>
-                        Siz De Bu Kardeşliğe <br/> Ortak Olun
+                    <div className={`font-light text-right text-gray-200 font-montserrat-light select-none ${currentState !== 0 ? "text-4xl" : "text-5xl mt-4"}`}>
+                        Burada Bir Kardeş'in Var
                     </div>
                 </div>
             </div>
@@ -248,11 +247,7 @@ export default function Main() {
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consectetur cumque expedita fuga fugiat optio soluta vitae? Architecto iusto magnam maiores nisi quod quos sapiente similique sunt. Debitis, explicabo?
                                     </div>
                                     <div className={"w-1/3 max-xl:w-1/2 max-lg:w-4/5 h-[500px]"}>
-                                        <img
-                                            src={"https://i.imghippo.com/files/mac6312nE.jpeg"}
-                                            alt={"image"}
-                                            className={"object-cover w-full h-full rounded-lg"}
-                                        />
+                                        <Image src={elsallama} alt={"image"} className={"object-cover w-full h-full rounded-lg"} />
                                     </div>
                                 </div>
                             </div>
@@ -411,7 +406,6 @@ export default function Main() {
                     </div>
                 </footer>
             </div>
-
         </div>
     );
 }
