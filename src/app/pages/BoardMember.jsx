@@ -28,7 +28,7 @@ export default function BoardMember() {
             name: "Hamza Kabakçılı",
             title: "Yönetim Kurulu Üyesi",
             email: "hamza@gmail.com",
-            image: "https://img.freepik.com/free-photo/handsome-young-man-with-arms-crossed-white-background_23-2148222620.jpg?t=st=1740854141~exp=1740857741~hmac=aa106515e296ff368eac57a14709b9b89c9361245d53864c0fd5a3af73a451af&w=1480"
+            image: "https://iili.io/F8sL6fn.jpg"
         },
         {
             name: "Enis Rahman Zencir",

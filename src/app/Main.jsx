@@ -188,7 +188,9 @@ export default function Main() {
 
                 {/* Join Button */}
                 <div className={"max-sm:mr-2"}>
-                    <div className={"px-6 py-2 rounded-md cursor-pointer bg-orange-600 hover:ring-2 ring-orange-400 transition duration-300 font-bold text-white"}>Bize Katıl!</div>
+                    <a onClick={() => window.open("https://forms.gle/R6yqPrF31FKdZK9u5", "_blank")}>
+                        <div className={"px-6 py-2 rounded-md cursor-pointer bg-orange-600 hover:ring-2 ring-orange-400 transition duration-300 font-bold text-white"}>Bize Katıl!</div>
+                    </a>
                 </div>
 
             </div>
@@ -375,9 +377,9 @@ export default function Main() {
                                 >Faaliyetlerimiz</div>
                             </div>
                             <div className={"flex max-md:flex-col gap-8 max-md:gap-4"}>
-                                <div className={"text-2xl text-gray-300 cursor-pointer hover:text-white transition"}>
+                                <a href="www.google.com" className={"text-2xl text-gray-300 cursor-pointer hover:text-white transition"}>
                                     <FaInstagram/>
-                                </div>
+                                </a>
                                 <div className={"text-2xl text-gray-300 cursor-pointer hover:text-white transition"}>
                                     <FaYoutube />
                                 </div>
